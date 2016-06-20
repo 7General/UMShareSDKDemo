@@ -28,6 +28,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 6p w : 414 h : 736
+    // 6 w: 375 h : 667
+    // 5 w: 320 h : 568
+    NSLog(@"---宽度--%f",KSCREENWIDTH);
+    NSLog(@"---高度--%f",KSCREENHEIGHT);
+    
     
     self.view.backgroundColor = YSColor(246, 246, 246);
     
@@ -51,6 +57,14 @@
     [weChat setImage:[UIImage imageNamed:@"wechat_login"] forState:UIControlStateNormal];
     [weChat addTarget:self action:@selector(weChatClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:weChat];
+    
+    
+    
+    UIButton * WB  = [UIButton buttonWithType:UIButtonTypeCustom];
+    WB.frame = CGRectMake(200, 500, 50, 50);
+    [WB setImage:[UIImage imageNamed:@"wechat_login"] forState:UIControlStateNormal];
+    [WB addTarget:self action:@selector(WBClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:WB];
     
     
     
@@ -117,7 +131,7 @@
         NSLog(@"这个是QQ好友");
     }else
     {
-        socialData.shareText = @"------------";
+        socialData.shareText = @"---------mmmmmm---";
         NSLog(@"其他:%@",platformName);
     }
 
@@ -149,9 +163,6 @@
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
             
             NSLog(@"用户昵称>> %@, 用户UID:>> %@, TOKEN:>> %@ 用户头像：>> %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-            
-            
-            
         }});
 }
 
@@ -174,7 +185,23 @@
     });
 
 }
+-(void)WBClick{
 
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
+    
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        
+        //          获取微博用户名、uid、token等
+        
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            
+            NSDictionary *dict = [UMSocialAccountManager socialAccountDictionary];
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:snsPlatform.platformName];
+            NSLog(@"\nusername = %@,\n usid = %@,\n token = %@ iconUrl = %@,\n unionId = %@,\n thirdPlatformUserProfile = %@,\n thirdPlatformResponse = %@ \n, message = %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL, snsAccount.unionId, response.thirdPlatformUserProfile, response.thirdPlatformResponse, response.message);
+            
+        }});
+    
+}
 
 
 @end

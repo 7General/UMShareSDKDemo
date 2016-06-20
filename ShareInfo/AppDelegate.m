@@ -12,7 +12,7 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
 
-
+#import "UMSocialSinaSSOHandler.h"
 
 @interface AppDelegate ()
 
@@ -42,6 +42,12 @@
     [UMSocialQQHandler setQQWithAppId:@"1104986729" appKey:@"HmjQNtC2G2tmhohN" url:@"http://www.umeng.com/social"];
     //微信分享
     [UMSocialWechatHandler setWXAppId:@"wx4ef6d730e2db0f4f" appSecret:@"7e9e111a2bf4543ef1ddec1348bfb1aa" url:@"http://www.baidu.com"];
+    
+    
+    //第一个参数为新浪appkey,第二个参数为新浪secret，第三个参数是新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"132095555"
+                                              secret:@"94f0a85a165e4f1861449548553a24ec"
+                                         RedirectURL:@"https://api.weibo.com/oauth2/default.html"];
     
 }
 

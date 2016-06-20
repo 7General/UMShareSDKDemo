@@ -43,6 +43,7 @@
 		252A44501CCF3B9200342818 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 252A44421CCF3B9200342818 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		252A44511CCF3B9200342818 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 252A44451CCF3B9200342818 /* libSocialWechat.a */; };
 		252A44521CCF3B9200342818 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 252A44461CCF3B9200342818 /* libWeChatSDK.a */; };
+		25542F671D18080400C50A07 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25542F661D18080400C50A07 /* ImageIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,7 @@
 		252A44481CCF3B9200342818 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		252A44491CCF3B9200342818 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		252A444A1CCF3B9200342818 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		25542F661D18080400C50A07 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25542F671D18080400C50A07 /* ImageIO.framework in Frameworks */,
 				252A444E1CCF3B9200342818 /* libSocialQQ.a in Frameworks */,
 				252A442D1CCF1D4B00342818 /* libz.tbd in Frameworks */,
 				252A444C1CCF3B9200342818 /* libWeiboSDK.a in Frameworks */,
@@ -181,6 +184,7 @@
 		252A43B31CCF1AC900342818 = {
 			isa = PBXGroup;
 			children = (
+				25542F661D18080400C50A07 /* ImageIO.framework */,
 				252A442E1CCF382100342818 /* ShareFramework */,
 				252A43BE1CCF1AC900342818 /* ShareInfo */,
 				252A43D81CCF1AC900342818 /* ShareInfoTests */,
@@ -696,7 +700,8 @@
 					"$(PROJECT_DIR)/ShareInfo/TencentOpenAPI",
 					"$(PROJECT_DIR)/ShareInfo/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.uknower.ShareInfo;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uknower.itax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -719,7 +724,8 @@
 					"$(PROJECT_DIR)/ShareInfo/TencentOpenAPI",
 					"$(PROJECT_DIR)/ShareInfo/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.uknower.ShareInfo;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uknower.itax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
