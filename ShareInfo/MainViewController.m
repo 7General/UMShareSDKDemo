@@ -82,16 +82,17 @@
     //[UMSocialData defaultData].extConfig.qqData.url = @"https://github.com/7General";
     //  设置分享到QQ空间的链接地址
     //[UMSocialData defaultData].extConfig.qzoneData.url = @"http://blog.csdn.net/whuizhou/article/details/51245333";
-    
-    
     //[UMSocialData defaultData].extConfig.wechatSessionData.url = @"http://www.baidu.com";
     
-//    [UMSocialSnsService presentSnsIconSheetView:self
-//                                         appKey:@"57186d9e67e58e3606002234"
-//                                      shareText:@"分享平台发送内容"
-//                                     shareImage:[UIImage imageNamed:@"qq_login"]
-//                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatFavorite,UMShareToEmail,nil]
-//                                       delegate:self];
+    NSString * strURL = @"http://global.eshuike.com/Itaxer/ENTYPATH/files/enty/EF20160628524947522041.jpg";
+    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:strURL]];
+    UIImage * shareImage = [UIImage imageWithData:data];
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"57186d9e67e58e3606002234"
+                                      shareText:@"分享平台发送内容"
+                                     shareImage:shareImage
+                                     shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatFavorite,UMShareToEmail,nil]
+                                       delegate:self];
     
     
     
@@ -99,14 +100,14 @@
     //[[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:@"http://www.baidu.com/img/bdlogo.gif"];
     
     // 发送mp3
-    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeMusic url:@"http://mr4.douban.com/201401091529/6e0b23f37fa584f2a6e58ac70d03b31e/view/song/small/p759182.mp3"];
-    
-    [UMSocialSnsService presentSnsIconSheetView:self
-                                         appKey:@"57186d9e67e58e3606002234"
-                                      shareText:@"分享平台发送内容"
-                                     shareImage:nil
-                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatFavorite,UMShareToEmail,nil]
-                                       delegate:self];
+//    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeMusic url:@"http://mr4.douban.com/201401091529/6e0b23f37fa584f2a6e58ac70d03b31e/view/song/small/p759182.mp3"];
+//    
+//    [UMSocialSnsService presentSnsIconSheetView:self
+//                                         appKey:@"57186d9e67e58e3606002234"
+//                                      shareText:@"分享平台发送内容"
+//                                     shareImage:nil
+//                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatFavorite,UMShareToEmail,nil]
+//                                       delegate:self];
 
 
 }
